@@ -14,6 +14,7 @@ public abstract class BLECommOperation {
 
     public boolean timedOut = false;
     public boolean interrupted = false;
+    public boolean empty = false;
     protected byte[] value;
     protected BluetoothGatt gatt;
     protected Semaphore operationComplete = new Semaphore(0, true);

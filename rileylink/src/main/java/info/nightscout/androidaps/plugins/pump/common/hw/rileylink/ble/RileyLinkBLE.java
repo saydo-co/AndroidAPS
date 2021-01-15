@@ -561,6 +561,8 @@ public class RileyLinkBLE {
                         rval.resultCode = BLECommOperationResult.RESULT_TIMEOUT;
                     } else if (mCurrentOperation.interrupted) {
                         rval.resultCode = BLECommOperationResult.RESULT_INTERRUPTED;
+                    } else if (mCurrentOperation.empty) {
+                        rval.resultCode = BLECommOperationResult.RESULT_EMPTY;
                     } else {
                         rval.resultCode = BLECommOperationResult.RESULT_SUCCESS;
                         rval.value = mCurrentOperation.getValue();

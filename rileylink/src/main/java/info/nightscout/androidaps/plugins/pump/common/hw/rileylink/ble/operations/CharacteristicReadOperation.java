@@ -38,7 +38,13 @@ public class CharacteristicReadOperation extends BLECommOperation {
             if (didAcquire) {
                 SystemClock.sleep(1); // This is to allow the IBinder thread to exit before we continue, allowing easier
                 // understanding of the sequence of events.
-                // success
+                if (characteristic.getValue() == null && characteristic.getValue().length == 0) {
+                    // only set value on success
+                    aapsLogger.error(LTag.PUMPBTCOMM, "Received an empty result from gatt write operation");
+                    value = null;
+                    empty = true;
+                } else {
+                }
             } else {
                 aapsLogger.error(LTag.PUMPBTCOMM, "Timeout waiting for gatt write operation to complete");
                 timedOut = true;
