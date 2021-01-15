@@ -129,6 +129,8 @@ public class RFSpyReader {
                             aapsLogger.error(LTag.PUMPBTCOMM, "FAIL: RileyLinkBLE reports operation already in progress");
                         } else if (result.resultCode == BLECommOperationResult.RESULT_NONE) {
                             aapsLogger.error(LTag.PUMPBTCOMM, "FAIL: got invalid result code: " + result.resultCode);
+                        } else if (result.resultCode == BLECommOperationResult.RESULT_EMPTY) {
+                            aapsLogger.error(LTag.PUMPBTCOMM, "FAIL: got invalid result code: " + result.resultCode);
                         }
                     } catch (InterruptedException e) {
                         aapsLogger.error(LTag.PUMPBTCOMM, "Interrupted while waiting for data");

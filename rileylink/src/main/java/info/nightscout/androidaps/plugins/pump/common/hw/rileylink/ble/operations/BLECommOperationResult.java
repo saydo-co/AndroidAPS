@@ -11,6 +11,8 @@ public class BLECommOperationResult {
     public static final int RESULT_BUSY = 3;
     public static final int RESULT_INTERRUPTED = 4;
     public static final int RESULT_NOT_CONFIGURED = 5;
+    public static final int RESULT_EMPTY = 6;
+
     public byte[] value;
     public int resultCode;
 }
