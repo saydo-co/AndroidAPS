@@ -25,7 +25,6 @@ import info.nightscout.androidaps.plugins.general.dataBroadcaster.DataBroadcastP
 import info.nightscout.androidaps.plugins.general.food.FoodPlugin
 import info.nightscout.androidaps.plugins.general.maintenance.MaintenancePlugin
 import info.nightscout.androidaps.plugins.general.nsclient.NSClientPlugin
-import info.nightscout.androidaps.plugins.general.openhumans.OpenHumansUploader
 import info.nightscout.androidaps.plugins.general.overview.OverviewPlugin
 import info.nightscout.androidaps.plugins.general.persistentNotification.PersistentNotificationPlugin
 import info.nightscout.androidaps.plugins.general.smsCommunicator.SmsCommunicatorPlugin
@@ -37,18 +36,15 @@ import info.nightscout.androidaps.plugins.insulin.InsulinOrefRapidActingPlugin
 import info.nightscout.androidaps.plugins.insulin.InsulinOrefUltraRapidActingPlugin
 import info.nightscout.androidaps.plugins.iob.iobCobCalculator.IobCobCalculatorPlugin
 import info.nightscout.androidaps.plugins.profile.local.LocalProfilePlugin
-import info.nightscout.androidaps.plugins.profile.ns.NSProfilePlugin
 import info.nightscout.androidaps.plugins.pump.combo.ComboPlugin
 import info.nightscout.androidaps.plugins.pump.insight.LocalInsightPlugin
 import info.nightscout.androidaps.plugins.pump.mdi.MDIPlugin
 import info.nightscout.androidaps.plugins.pump.medtronic.MedtronicPumpPlugin
-import info.nightscout.androidaps.plugins.pump.omnipod.eros.OmnipodErosPumpPlugin
 import info.nightscout.androidaps.plugins.pump.virtual.VirtualPumpPlugin
 import info.nightscout.androidaps.plugins.sensitivity.SensitivityAAPSPlugin
 import info.nightscout.androidaps.plugins.sensitivity.SensitivityOref1Plugin
 import info.nightscout.androidaps.plugins.sensitivity.SensitivityWeightedAveragePlugin
 import info.nightscout.androidaps.plugins.source.*
-import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin
 import javax.inject.Qualifier
 
 @Module
@@ -156,11 +152,11 @@ abstract class PluginsModule {
     @IntKey(150)
     abstract fun bindMedtronicPumpPlugin(plugin: MedtronicPumpPlugin): PluginBase
 
-    @Binds
-    @PumpDriver
-    @IntoMap
-    @IntKey(155)
-    abstract fun bindOmnipodPumpPlugin(plugin: OmnipodErosPumpPlugin): PluginBase
+    // @Binds
+    // @PumpDriver
+    // @IntoMap
+    // @IntKey(155)
+    // abstract fun bindOmnipodPumpPlugin(plugin: OmnipodErosPumpPlugin): PluginBase
 
     @Binds
     @NotNSClient
@@ -195,12 +191,6 @@ abstract class PluginsModule {
     @Binds
     @AllConfigs
     @IntoMap
-    @IntKey(230)
-    abstract fun bindNSProfilePlugin(plugin: NSProfilePlugin): PluginBase
-
-    @Binds
-    @NotNSClient
-    @IntoMap
     @IntKey(240)
     abstract fun bindLocalProfilePlugin(plugin: LocalProfilePlugin): PluginBase
 
@@ -209,12 +199,6 @@ abstract class PluginsModule {
     @IntoMap
     @IntKey(250)
     abstract fun bindAutomationPlugin(plugin: AutomationPlugin): PluginBase
-
-    @Binds
-    @AllConfigs
-    @IntoMap
-    @IntKey(260)
-    abstract fun bindTreatmentsPlugin(plugin: TreatmentsPlugin): PluginBase
 
     @Binds
     @AllConfigs
@@ -348,11 +332,11 @@ abstract class PluginsModule {
     @IntKey(470)
     abstract fun bindRandomBgPlugin(plugin: RandomBgPlugin): PluginBase
 
-    @Binds
-    @NotNSClient
-    @IntoMap
-    @IntKey(480)
-    abstract fun bindOpenHumansPlugin(plugin: OpenHumansUploader): PluginBase
+    // @Binds
+    // @NotNSClient
+    // @IntoMap
+    // @IntKey(480)
+    // abstract fun bindOpenHumansPlugin(plugin: OpenHumansUploader): PluginBase
 
     @Binds
     @AllConfigs
